@@ -26,32 +26,27 @@
 		<script src="pow-construction.js"></script>
 	</head>
 	<body>
-		<section class="slide-title">Proof of Work: Construction</section>
+		<section class="slide-title">Proof of Sequential Work: Naive Construction</section>
 
 		<section class="slide-content slide-item" data-visible-from="1">
-			Small sidetrack for warm-up
+			Construction: hash-chain?
 		</section>
-		<section class="slide-content slide-item" data-visible-from="2">
-			Construction:
-		</section>
-		<section class="slide-content slide-sub-item" data-visible-from="3">
+		<section class="slide-content slide-sub-item" data-visible-from="2">
 			Let $n$ be some <i>difficulty</i> parameter
 		</section>
-		<section class="slide-content slide-sub-item" data-visible-from="4">
-			Verifier picks $x$ and sends it to prover.
+		<section class="slide-content slide-sub-item" data-visible-from="3">
+			Verifier samples $x$ and sends it to the prover.
 		</section>
-		<section class="slide-content slide-sub-item" data-visible-from="5">
-			Prover computes $y$ where $H(x, y)$ starts with $n$ zeroes.
+		<section class="slide-content slide-sub-item" data-visible-from="4">
+			Prover evaluates $H^n(x)$.
+		</section>
+
+		<section class="slide-content slide-item" data-visible-from="5">
+			Difficult to verify...
 		</section>
 
 		<section class="slide-content slide-item" data-visible-from="6">
-			Properties:
-		</section>
-		<section class="slide-content slide-sub-item" data-visible-from="7">
-			Hard to compute
-		</section>
-		<section class="slide-content slide-sub-item" data-visible-from="8">
-			Easy to check
+			Actual construction is more complicated.
 		</section>
 	</body>
 </html>
