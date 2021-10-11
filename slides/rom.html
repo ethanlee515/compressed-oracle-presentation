@@ -23,30 +23,28 @@
 		<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		<script src="./q-pres.js"></script>
-		<script src="posw-candidate.js"></script>
+		<script src="./rom.js"></script>
 	</head>
 	<body>
-		<section class="slide-title">Proof of Sequential Work: Naive Construction</section>
+		<section class="slide-title">Preliminary: Modeling Hash Functions</section>
 
 		<section class="slide-content slide-item" data-visible-from="1">
-			Construction: hash-chain?
+			Hash functions $\approx$ truly random functions.
 		</section>
-		<section class="slide-content slide-sub-item" data-visible-from="2">
-			Let $n$ be some <i>difficulty</i> parameter
+		<section class="slide-content slide-item" data-visible-from="2">
+			Model as oracles
 		</section>
-		<section class="slide-content slide-sub-item" data-visible-from="3">
-			Verifier samples $x$ and sends it to the prover.
+		<section class="slide-content slide-item" data-visible-from="3">
+			Algorithm complexity $:=$ query complexity
 		</section>
-		<section class="slide-content slide-sub-item" data-visible-from="4">
-			Prover evaluates $H^n(x)$.
+		<section class="slide-content slide-item" data-visible-from="4">
+			Example: Proof of work
 		</section>
-
-		<section class="slide-content slide-item" data-visible-from="5">
-			Difficult to verify...
+		<section class="slide-content slide-sub-item" data-visible-from="5">
+			A classical algorithm needs to make $2^n$ queries on average.
 		</section>
-
-		<section class="slide-content slide-item" data-visible-from="6">
-			Actual construction is more complicated.
+		<section class="slide-content slide-sub-item" data-visible-from="6">
+			Classical Random oracle model
 		</section>
 	</body>
 </html>
