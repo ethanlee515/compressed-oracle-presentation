@@ -1,5 +1,5 @@
 function nextSlide() {
-	if(currentSlide == 8) {
+	if(currentSlide == 7) {
 		location.href = "posw-candidate.html";
 	}
 }
