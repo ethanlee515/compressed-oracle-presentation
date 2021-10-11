@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MPQC SWIA Presentation</title>
+		<link rel="stylesheet" href="./q-pres.css">
+		<script>
+			function mathjax_ready_override() {
+				main();
+				return MathJax.startup.defaultPageReady();
+			}
+			MathJax = {
+				tex: {
+					inlineMath: [['$', '$'], ['\\(', '\\)']]
+				},
+				svg: {
+					fontCache: 'global'
+				},
+				startup: {
+					pageReady: mathjax_ready_override
+				}
+			};
+		</script>
+		<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="./q-pres.js"></script>
+		<script src="hash-functions.js"></script>
+	</head>
+	<body>
+		<section class="slide-title">Hash functions</section>
+
+		<section class="slide-content slide-item" data-visible-from="1">
+			Well-known application: hashmaps!
+		</section>
+		<section class="slide-content slide-sub-item" data-visible-from="2">
+			Ever used the dict datatype in Python?
+		</section>
+		
+		<section class="slide-content slide-item" data-visible-from="3">
+			Quick <a href="https://emn178.github.io/online-tools/sha3_256.html">demo</a>
+		</section>
+
+		<section class="slide-content slide-item" data-visible-from="4">
+			Properties:
+		</section>
+
+		<section class="slide-content slide-sub-item" data-visible-from="5">
+			Output seems random
+		</section>
+
+		<section class="slide-content slide-sub-item" data-visible-from="6">
+			Changing a single input bit changes the entire output
+		</section>
+	</body>
+</html>

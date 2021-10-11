@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MPQC SWIA Presentation</title>
+		<link rel="stylesheet" href="./q-pres.css">
+		<script>
+			function mathjax_ready_override() {
+				main();
+				return MathJax.startup.defaultPageReady();
+			}
+			MathJax = {
+				tex: {
+					inlineMath: [['$', '$'], ['\\(', '\\)']]
+				},
+				svg: {
+					fontCache: 'global'
+				},
+				startup: {
+					pageReady: mathjax_ready_override
+				}
+			};
+		</script>
+		<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="./q-pres.js"></script>
+		<script src="pow-construction.js"></script>
+	</head>
+	<body>
+		<section class="slide-title">Proof of Work: Construction</section>
+
+		<section class="slide-content slide-item" data-visible-from="1">
+			Small sidetrack, but easy to analyse as warm-up
+		</section>
+		<section class="slide-content slide-item" data-visible-from="2">
+			Construction:
+		</section>
+		<section class="slide-content slide-sub-item" data-visible-from="3">
+			Let $n$ be some <i>difficulty</i> parameter
+		</section>
+		<section class="slide-content slide-sub-item" data-visible-from="4">
+			Verifier picks $x$ and sends it to prover.
+		</section>
+		<section class="slide-content slide-sub-item" data-visible-from="5">
+			Prover attempts to find $y$ so that $H(x, y)$ starts with $n$ zeroes.
+		</section>
+
+		<section class="slide-content slide-item" data-visible-from="6">
+			Properties:
+		</section>
+		<section class="slide-content slide-sub-item" data-visible-from="7">
+			Hard to compute
+		</section>
+		<section class="slide-content slide-sub-item" data-visible-from="8">
+			Easy to check
+		</section>
+	</body>
+</html>

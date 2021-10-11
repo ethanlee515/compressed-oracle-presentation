@@ -6,6 +6,11 @@ Paper title and authors
 
 ## Motivations
 
+### Proof of work
+
+Has anyone heard of it?
+
+
 ### Hash functions
 
 Ingrediant for proof of work and proof of sequential work

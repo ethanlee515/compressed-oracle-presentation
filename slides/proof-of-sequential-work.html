@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MPQC SWIA Presentation</title>
+		<link rel="stylesheet" href="./q-pres.css">
+		<script>
+			function mathjax_ready_override() {
+				main();
+				return MathJax.startup.defaultPageReady();
+			}
+			MathJax = {
+				tex: {
+					inlineMath: [['$', '$'], ['\\(', '\\)']]
+				},
+				svg: {
+					fontCache: 'global'
+				},
+				startup: {
+					pageReady: mathjax_ready_override
+				}
+			};
+		</script>
+		<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="./q-pres.js"></script>
+		<script src="proof-of-sequential-work.js"></script>
+	</head>
+	<body>
+		<section class="slide-title">Proof of Sequential Work</section>
+
+		<section class="slide-content slide-item" data-visible-from="1">
+			Goal:
+		</section>
+		<section class="slide-content slide-sub-item" data-visible-from="2">
+			Difficult to compute
+		</section>
+		<section class="slide-content slide-sub-item" data-visible-from="3">
+			<span style="font-weight: bold;">Cannot</span> parallelize
+		</section>
+		<section class="slide-content slide-sub-item" data-visible-from="4">
+			Easy to verify
+		</section>
+
+		<section class="slide-content slide-item" data-visible-from="5">
+			Candidate construction: construct hash-chain?
+		</section>
+		<section class="slide-content slide-sub-item" data-visible-from="6">
+			Verifier samples $x$ and sends it to the prover.
+		</section>
+		<section class="slide-content slide-sub-item" data-visible-from="7">
+			Prover evaluates $H^n(x)$.
+		</section>
+		<section class="slide-content slide-sub-item" data-visible-from="8">
+			Difficult to verify...
+		</section>
+
+		<section class="slide-content slide-item" data-visible-from="9">
+			Actual construction is more complicated.
+		</section>
+	</body>
+</html>
