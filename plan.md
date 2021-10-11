@@ -68,18 +68,36 @@ Database defined analogously? Nontrivial though.
 
 TODO illustration at least?
 
-### Transition capacity
+### Database property
+
 
 Framework
 
 Everything so far is preliminary!!!!
 
+Definition
+
+Example
+
+### Transition capacity
+
 Define transition prob.
 Note the parallel queries.
 
-### Database property
+Seq queries
 
-### Transitions and local property
+Quick exercise
+
+### theorem
+
+Relate transition with acc
+
+### more properties
+
+Local properties theorem
+Bounding transition prob by local prop
+
+More ways to break down transition probs
 
 ## Proof of sequential work: Construction
 
@@ -91,7 +109,8 @@ Intuitively why this works
 
 Follow paper...
 
-Build a "relation" for success
+Build a "relation" for successful database
 
-Apply
+Break into 3 terms
+
 
