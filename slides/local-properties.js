@@ -1,5 +1,5 @@
 function nextSlide() {
-	if(currentSlide == 4) {
+	if(currentSlide == 3) {
 		location.href = "estimating-capacities.html";
 	}
 }

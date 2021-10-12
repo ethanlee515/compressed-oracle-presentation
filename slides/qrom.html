@@ -38,19 +38,22 @@
 			Initial state: $D=\ket{\bot}$
 		</section>
 		<section class="slide-content slide-sub-item" data-visible-from="4">
-			First query: $\ket{x_1}+\ket{x_2}$.
+			First query: $\ket{x_1}\ket{0}+\ket{x_2}\ket{0}$.
 			<p class="slide-content slide-sub-item" data-visible-from="5">
+			Oracle replies $\ket{x_1}\ket{y_1}+\ket{x_2}\ket{y_2}$
+			</p>
+			<p class="slide-content slide-sub-item" data-visible-from="6">
 				$\Rightarrow D=\sum_{y_1}\ket{[(x_1, y_1)]} + \sum_{y_2}\ket{[(x_2, y_2)]}$</p>
 			</p>
 		</section>
-		<section class="slide-content slide-sub-item" data-visible-from="6">
-			Second query: $\ket{x_3}+\ket{x_4}$.
-			<p class="slide-content slide-sub-item" data-visible-from="7">
+		<section class="slide-content slide-sub-item" data-visible-from="7">
+			Second query: $\ket{x_3}\ket{0}+\ket{x_4}\ket{0}$.
+			<p class="slide-content slide-sub-item" data-visible-from="8">
 				$\Rightarrow D=
 				\sum_{y_1, y_3}\ket{[(x_1, y_1), (x_3, y_3)]}
 				+ \sum_{y_1, y_4}\ket{[(x_1, y_1), (x_4, y_4)]}$
 			</p>
-			<p class="slide-content slide-sub-item" data-visible-from="7">
+			<p class="slide-content slide-sub-item" data-visible-from="8">
 				$\qquad + \sum_{y_2, y_3}\ket{[(x_2, y_2), (x_3, y_3)]}
 				+ \sum_{y_2, y_4}\ket{[(x_2, y_2), (x_4, y_4)]}
 				$</p>

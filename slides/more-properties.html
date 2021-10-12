@@ -26,19 +26,31 @@
 		<script src="./more-properties.js"></script>
 	</head>
 	<body>
-		<section class="slide-title">Estimating transition capacities</section>
+		<section class="slide-title">Ways to Simplify Transition Capacities</section>
 
 		<section class="slide-content slide-item" data-visible-from="1">
-			We can bound capacities in terms of classical quantities
+			For all properties $P, Q, P''$,
+			$$
+			[\![P\xrightarrow{k}P]\!]\leq
+			[\![P\xrightarrow{k} P''\setminus Q]\!]+
+			[\![P\xrightarrow{k} P''\cap Q]\!]
+			$$
 		</section>
 		<section class="slide-content slide-item" data-visible-from="2">
-			Is nontrivial
+			Let $k=k'+k''$, then
+			$$
+			[\![P\xrightarrow{k}P]\!]\leq
+			[\![P\xrightarrow{k'}P']\!]+
+			[\![\neg P'\xrightarrow{k''}P''\cap Q]\!]
+			$$
 		</section>
 		<section class="slide-content slide-item" data-visible-from="3">
-			TODO copy formula
-		</section>
-		<section class="slide-content slide-item" data-visible-from="3">
-			TODO copy another formula
+			Let $X=X' \cup X''$, then
+			$$
+			[\![P\rightarrow P|X]\!]\leq
+			[\![P\rightarrow P'|X']\!]+
+			[\![\neg P'\rightarrow P''\cap Q|X'']\!]
+			$$
 		</section>
 	</body>
 </html>

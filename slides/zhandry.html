@@ -23,21 +23,28 @@
 		<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		<script src="./q-pres.js"></script>
-		<script src="./proof-of-work.js"></script>
+		<script src="./zhandry.js"></script>
 	</head>
 	<body>
-		<section class="slide-title">Motivation: Proof of Work</section>
+		<section class="slide-title">Analyzing Algorithms by Transition Capacities</section>
+
+		<section class="slide-content slide-item">
+			Previous result by Zhandry
+		</section>
 
 		<section class="slide-content slide-item" data-visible-from="1">
-			Part of bitcoin mining algorithm.
-		</section>
-		
-		<section class="slide-item slide-content" data-visible-from="2">
-			Shows that computation resources have been consumed.
+			Rephrased in language of transition capacities.
 		</section>
 
+		<section class="slide-content slide-item" data-visible-from="2">
+			Let $R\subseteq X^\ell\times Y^\ell$ be a relation.
+		</section>
 		<section class="slide-content slide-item" data-visible-from="3">
-			Construction uses hash function.
+			Let $\mathcal{A}$ be some algorithm that outputs $(\vec{x}, \vec{y})\in R$ where $H(x)=y$ with probability $p$.
+		</section>
+		<section class="slide-content slide-item" data-visible-from="4">
+			Then we have
+			$$\sqrt{p}\leq[\![\bot\xrightarrow{k, q} P^R]\!]+\sqrt{\frac{\ell}{M}}$$
 		</section>
 	</body>
 </html>

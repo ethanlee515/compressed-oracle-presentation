@@ -29,13 +29,21 @@
 		<section class="slide-title">Database Transitions</section>
 
 		<section class="slide-content slide-item" data-visible-from="1">
-			TODO Definition of database transitions
+			Define the <i>quantum transition capacity</i> as
+			$$[\![P\xrightarrow{k}P']\!]:=\max_{x, y} ||P'cO_{xy}P||$$
+			which measures how likely it is that a database that satisfies $P$
+			turns into a database that satisfies $P'$ from a query.
 		</section>
 		<section class="slide-content slide-item" data-visible-from="2">
-			TODO Definition of sequential database transitions
+			Define
+			$$[\![P\xrightarrow{k,q}P']\!]:=\sup_{U_i} ||P' cO^k U_{q-1} cO^k\ldots U_1 cO^k P||$$
+			which measures how likely it is that a database that satisfies $P$
+			turns into one that satisfies $P'$ from a quantum algorithm.
 		</section>
 		<section class="slide-content slide-item" data-visible-from="3">
-			TODO quick exercise
+			Quick exercise:
+			For any sequence of properties $P_i$,
+			$$[\![\neg P_0\xrightarrow{k, q}P_q]\!]\leq\sum_{i}[\![\neg P_{i-1}\rightarrow P_i]\!]$$
 		</section>
 	</body>
 </html>
