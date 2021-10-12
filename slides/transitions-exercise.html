@@ -29,13 +29,25 @@
 		<section class="slide-title">Proof of exercise</section>
 
 		<section class="slide-content slide-item" data-visible-from="1">
-			TODO Definition of database transitions
+			$[\![\neg P_0\xrightarrow{k,q}P_q]\!]=\sup_{U_i} ||P_q cO^k U_{q-1} cO^k\ldots U_1 cO^k (I-P_0)||$
 		</section>
 		<section class="slide-content slide-item" data-visible-from="2">
-			TODO Definition of sequential database transitions
+			$\qquad=\sup_{U_i} ||P_q cO^k (P_{q-1}+(I-P_{q-1})) U_{q-1} cO^k\ldots U_1 cO^k (I-P_0)||$
 		</section>
 		<section class="slide-content slide-item" data-visible-from="3">
-			TODO quick exercise
+			$\qquad=\sup_{U_i} ||P_q cO^k P_{q-1} U_{q-1} cO^k\ldots U_1 cO^k (I-P_0)||$
+		</section>
+		<section class="slide-content slide-item" data-visible-from="3">
+			$\qquad\qquad+\sup_{U_i} ||P_q cO^k (I-P_{q-1}) U_{q-1} cO^k\ldots U_1 cO^k (I-P_0)||$
+		</section>
+		<section class="slide-content slide-item" data-visible-from="4">
+			$\qquad\leq\sup_{U_i} ||P_{q-1} cO^k\ldots U_1 cO^k (I-P_0)||$
+		</section>
+		<section class="slide-content slide-item" data-visible-from="4">
+				$\qquad\qquad+\sup_{U_i} ||P_q cO^k (I-P_{q-1})||$
+		</section>
+		<section class="slide-content slide-item" data-visible-from="5">
+			$\qquad=[\![\neg P_0\xrightarrow{k,q-1}P_{q-1}]\!]+[\![\neg P_{q-1}\xrightarrow{k}P_q]\!]$
 		</section>
 	</body>
 </html>

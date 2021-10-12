@@ -32,13 +32,13 @@
 			Define the <i>quantum transition capacity</i> as
 			$$[\![P\xrightarrow{k}P']\!]:=\max_{x, y} ||P'cO_{xy}P||$$
 			which measures how likely it is that a database that satisfies $P$
-			turns into a database that satisfies $P'$ from a query.
+			turns into a database that satisfies $P'$ from a $k$-parallel query.
 		</section>
 		<section class="slide-content slide-item" data-visible-from="2">
 			Define
 			$$[\![P\xrightarrow{k,q}P']\!]:=\sup_{U_i} ||P' cO^k U_{q-1} cO^k\ldots U_1 cO^k P||$$
 			which measures how likely it is that a database that satisfies $P$
-			turns into one that satisfies $P'$ from a quantum algorithm.
+			turns into one that satisfies $P'$ from a quantum algorithm performing $k$-parallel queries up to $q$ times.
 		</section>
 		<section class="slide-content slide-item" data-visible-from="3">
 			Quick exercise:
