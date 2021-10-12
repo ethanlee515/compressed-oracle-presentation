@@ -32,7 +32,7 @@
 			We can break down transitions using database properties.
 		</section>
 		<section class="slide-content slide-item" data-visible-from="2">
-			A transition $\neg\mathsf{P}\rightarrow\mathsf{P}'$ is <i>strongly and uniformly recognizable</i>
+			A transition $\neg\mathsf{P}\rightarrow\mathsf{P}'$ is <i>strongly recognizable</i>
 			by $\set{\mathsf{L}_i}$ if and only if $\mathsf{P}'\subseteq \cup_i\set{\mathsf{L}_i}\subseteq\mathsf{P}$.
 		</section>
 		<section class="slide-content slide-item" data-visible-from="3">
@@ -45,7 +45,14 @@
 			For any $D$ to satisfy $\mathsf{P}$, it is necessary and sufficient that $D$ satisfies one of the $\mathsf{L}_i$'s.
 		</section>
 		<section class="slide-content slide-item" data-visible-from="6">
-			There are <i>weak</i> and <i>non-uniform</i> versions too.
+			A transition $\mathsf{P}\rightarrow\mathsf{P}'$ is <i>weakly recognizable</i>
+			by $\set{\mathsf{L}_i}$ if and only if
+			$$
+			D\in\mathsf{P}\wedge D'\in\mathsf{P}'\Rightarrow \exists\mathsf{L}_i: D'\in\mathsf{L}_i \wedge (\exists x\in Supp(\mathsf{L}_i), D(x)\ne D'(x))
+			$$
+		</section>
+		<section class="slide-content slide-item" data-visible-from="7">
+			There are <i>non-uniform</i> versions too.
 		</section>
 	</body>
 </html>
