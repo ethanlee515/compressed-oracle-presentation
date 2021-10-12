@@ -29,25 +29,39 @@
 		<section class="slide-title">Proof of Sequential Work: Construction</section>
 
 		<section class="slide-content slide-item">
-			As in [CP18].
+			As in <a href="https://eprint.iacr.org/2018/183.pdf">[CP18]</a>.
 		</section>
 		<section class="slide-content slide-item" data-visible-from="1">
-			See paper for graph construction.
+			See <a href="https://arxiv.org/pdf/2010.11658.pdf">paper</a> for graph construction. (p. 25)
 		</section>
 
 		<section class="slide-content slide-item" data-visible-from="2">
-			Verifier sends $x$ to prover.
+			For $x\in\set{0, 1}^\lambda$, define vertex label as
+			$$\ell(v)=H(LbQ, x, v, \ell(in(v)))$$
 		</section>
 
 		<section class="slide-content slide-item" data-visible-from="3">
-			Prover label vertices as $\ell(v)=H(LbQ, x, v, \ell(in(v)))$.
+			Protocol:
 		</section>
 
-		<section class="slide-content slide-item" data-visible-from="4">
-			Generate challenge $c=H(ChQ, \ell(rt))$ as subset of leaves.
+		<section class="slide-content slide-sub-item" data-visible-from="4">
+			Verifier samples $x\in\set{0, 1}^\lambda$ and sends it to the prover.
 		</section>
 
-		<section class="slide-content slide-item" data-visible-from="5">
+		<section class="slide-content slide-sub-item" data-visible-from="5">
+			Prover compute all labels.
+		</section>
+
+		<section class="slide-content slide-sub-item" data-visible-from="6">
+			<span class="slide-content" data-visible-until="7">
+				Verifier chooses challenge $c$ as a subset of leaves
+			</span>
+			<span class="slide-content" style="color: red;" data-visible-from="8">
+				Prover generates challenge $c=H(ChQ, \ell(rt))$
+			</span>
+		</section>
+
+		<section class="slide-content slide-sub-item" data-visible-from="7">
 			Prover sends labels on the <i>authentication path</i> of $c$.
 		</section>
 	</body>

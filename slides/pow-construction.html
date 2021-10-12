@@ -38,19 +38,22 @@
 			Let $n$ be some <i>difficulty</i> parameter
 		</section>
 		<section class="slide-content slide-sub-item" data-visible-from="4">
-			Verifier picks $x$ and sends it to prover.
+			Verifier picks random $x\in\set{0, 1}^\lambda$ and sends it to prover.
 		</section>
 		<section class="slide-content slide-sub-item" data-visible-from="5">
 			Prover computes $y$ where $H(x, y)$ starts with $n$ zeroes.
 		</section>
+		<section class="slide-content slide-sub-item" data-visible-from="6">
+			Prover sends $y$ to verifier who checks $H(x, y)$.
+		</section>
 
-		<section class="slide-content slide-item" data-visible-from="6">
+		<section class="slide-content slide-item" data-visible-from="7">
 			Properties:
 		</section>
-		<section class="slide-content slide-sub-item" data-visible-from="7">
+		<section class="slide-content slide-sub-item" data-visible-from="8">
 			Hard to compute
 		</section>
-		<section class="slide-content slide-sub-item" data-visible-from="8">
+		<section class="slide-content slide-sub-item" data-visible-from="9">
 			Easy to check
 		</section>
 	</body>

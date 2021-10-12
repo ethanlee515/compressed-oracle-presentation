@@ -133,6 +133,11 @@ function updateSlideContentVisibility() {
 			slideContent.css('visibility',
 				currentSlide >= visibleFrom ? 'visible' : 'hidden');
 		}
+
+		let visibleUntil = slideContent.data('visible-until');
+		if(visibleUntil != null && currentSlide > visibleUntil) {
+			slideContent.remove();
+		}
 	}
 }
 
