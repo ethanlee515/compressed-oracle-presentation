@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MPQC SWIA Presentation</title>
+		<link rel="stylesheet" href="./q-pres.css">
+		<script>
+			function mathjax_ready_override() {
+				main();
+				return MathJax.startup.defaultPageReady();
+			}
+			MathJax = {
+				tex: {
+					inlineMath: [['$', '$'], ['\\(', '\\)']]
+				},
+				svg: {
+					fontCache: 'global'
+				},
+				startup: {
+					pageReady: mathjax_ready_override
+				}
+			};
+		</script>
+		<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="./q-pres.js"></script>
+		<script src="./more-properties-proof.js"></script>
+	</head>
+	<body>
+		<section class="slide-title">Proof of Last Lemma</section>
+
+		<section class="slide-content slide-item" data-visible-from="1">
+			$
+			[\![P\xrightarrow{k} P''|X]\!]=\max_{xy}||P''cO_{xy}P||
+			$
+		</section>
+
+		<section class="slide-content slide-item" data-visible-from="1">
+			$
+			\qquad=\max_{xy}||P''cO_{x''y''}cO_{x'y'}P||
+			$
+		</section>
+
+		<section class="slide-content slide-item" data-visible-from="2">
+			$
+			\qquad=\max_{xy}||P''cO_{x''y''}(P' + (I - P'))cO_{x'y'}P||
+			$
+		</section>
+
+		<section class="slide-content slide-item" data-visible-from="3">
+			$
+			\qquad=\max_{xy}||P''cO_{x''y''}P' cO_{x'y'}P||
+			$
+		</section>
+
+		<section class="slide-content slide-item" data-visible-from="3">
+			$
+			\qquad\qquad+\max_{xy}||P''cO_{x''y''}(I - P')cO_{x'y'}P||
+			$
+		</section>
+
+		<section class="slide-content slide-item" data-visible-from="4">
+			$
+			\qquad=\max_{xy}||P' cO_{x'y'}P||
+			$
+		</section>
+
+		<section class="slide-content slide-item" data-visible-from="4">
+			$
+			\qquad\qquad+\max_{xy}||P''cO_{x''y''}(I - P')||
+			$
+		</section>
+
+		<section class="slide-content slide-item" data-visible-from="5">
+			$
+			\qquad\leq
+			[\![P\xrightarrow{k} P'|X']\!]+
+			[\![\neg P'\xrightarrow{k} P''|X'']\!]
+			$
+		</section>
+
+		<!--section class="slide-content slide-item" data-visible-from="4">
+			$$
+			\leq
+			[\![P\xrightarrow{k} P'|X']\!]+
+			[\![\neg P'\xrightarrow{k} P''|X'']\!]
+			$$
+		</section>
+
+		<section class="slide-content slide-item" data-visible-from="1">
+			For all properties $P, Q, P''$,
+			$$
+			[\![P\xrightarrow{k}P'']\!]\leq
+			[\![P\xrightarrow{k} P''\setminus Q]\!]+
+			[\![P\xrightarrow{k} P''\cap Q]\!]
+			$$
+		</section>
+		<section class="slide-content slide-item" data-visible-from="2">
+			Let $k=k'+k''$, then
+			$$
+			[\![P\xrightarrow{k}P'']\!]\leq
+			[\![P\xrightarrow{k'}P']\!]+
+			[\![\neg P'\xrightarrow{k''}P'']\!]
+			$$
+		</section>
+		<section class="slide-content slide-item" data-visible-from="3">
+			Let $X=X' \cup X''$, then
+			$$
+			[\![P\xrightarrow{k} P''|X]\!]\leq
+			[\![P\xrightarrow{k} P'|X']\!]+
+			[\![\neg P'\xrightarrow{k} P''|X'']\!]
+			$$
+		</section-->
+	</body>
+</html>
