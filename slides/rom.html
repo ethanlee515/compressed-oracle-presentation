@@ -29,22 +29,28 @@
 		<section class="slide-title">Preliminary: Modeling Hash Functions</section>
 
 		<section class="slide-content slide-item" data-visible-from="1">
-			Hash functions $\approx$ truly random functions.
+			Hash functions $\approx$ truly random functions
 		</section>
 		<section class="slide-content slide-item" data-visible-from="2">
-			Model as oracles
+			Model function evaluation as oracle queries.
 		</section>
 		<section class="slide-content slide-item" data-visible-from="3">
-			Algorithm complexity $:=$ query complexity
+			Resource consumed $\sim$ query complexity.
 		</section>
 		<section class="slide-content slide-item" data-visible-from="4">
-			Example: Proof of work
+			Example: Classical analysis of proof of work algorithm
 		</section>
-		<section class="slide-content slide-sub-item" data-visible-from="5">
-			A classical algorithm needs to make $2^n$ queries on average.
-		</section>
-		<section class="slide-content slide-sub-item" data-visible-from="6">
-			Classical Random oracle model
+			<section class="slide-content slide-sub-item" data-visible-from="5">
+				Keep a <i>database</i> of oracle queries + responses.
+			</section>
+			<section class="slide-content slide-sub-item" data-visible-from="6">
+				An algorithm cannot win unless there is a response $y_i=\underline{0^ns}$ in the database.
+			</section>
+			<section class="slide-content slide-sub-item" data-visible-from="7">
+				This takes $2^n$ queries on average.
+			</section>
+		<section class="slide-content slide-item" data-visible-from="8">
+			Classical <i>random oracle model</i>.
 		</section>
 	</body>
 </html>

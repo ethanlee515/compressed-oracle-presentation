@@ -1,5 +1,5 @@
 function nextSlide() {
-	if(currentSlide == 6) {
+	if(currentSlide == 8) {
 		location.href = "database-properties.html";
 	}
 }

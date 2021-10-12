@@ -1,5 +1,5 @@
 function nextSlide() {
-	if(currentSlide == 5) {
+	if(currentSlide == 4) {
 		location.href = "hash-functions.html";
 	}
 }

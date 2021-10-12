@@ -32,18 +32,28 @@
 			Allow <i>superposition</i> queries to the random oracle.
 		</section>
 		<section class="slide-content slide-item" data-visible-from="2">
-			Example:
+			Rough sketch:
 		</section>
 		<section class="slide-content slide-sub-item" data-visible-from="3">
-			Initial state: $D=\ket{\bot}=\ket{[]}$
+			Initial state: $D=\ket{\bot}$
 		</section>
 		<section class="slide-content slide-sub-item" data-visible-from="4">
-			After query $\ket{x_1}+\ket{x_2}$: $D=\ket{[(x_1, y_1)]} + \ket{[(x_2, y_2)]}$
-
-			TODO sum
+			First query: $\ket{x_1}+\ket{x_2}$.
+			<p class="slide-content slide-sub-item" data-visible-from="5">
+				$\Rightarrow D=\sum_{y_1}\ket{[(x_1, y_1)]} + \sum_{y_2}\ket{[(x_2, y_2)]}$</p>
+			</p>
 		</section>
-		<section class="slide-content slide-sub-item" data-visible-from="5">
-			After query $\ket{x_3}+\ket{x_4}$: $D=\ket{[(x_1, y_1)]} + \ket{[(x_2, y_2)]}$
+		<section class="slide-content slide-sub-item" data-visible-from="6">
+			Second query: $\ket{x_3}+\ket{x_4}$.
+			<p class="slide-content slide-sub-item" data-visible-from="7">
+				$\Rightarrow D=
+				\sum_{y_1, y_3}\ket{[(x_1, y_1), (x_3, y_3)]}
+				+ \sum_{y_1, y_4}\ket{[(x_1, y_1), (x_4, y_4)]}$
+			</p>
+			<p class="slide-content slide-sub-item" data-visible-from="7">
+				$\qquad + \sum_{y_2, y_3}\ket{[(x_2, y_2), (x_3, y_3)]}
+				+ \sum_{y_2, y_4}\ket{[(x_2, y_2), (x_4, y_4)]}
+				$</p>
 		</section>
 	</body>
 </html>
