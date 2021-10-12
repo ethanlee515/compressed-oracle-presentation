@@ -1,5 +1,5 @@
 function nextSlide() {
-	if(currentSlide == 2) {
-		location.href = "posw-analysis.html";
+	if(currentSlide == 4) {
+		location.href = "posw-analysis-cont.html";
 	}
 }
