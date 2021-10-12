@@ -29,20 +29,23 @@
 		<section class="slide-title">More on Transitions Capacities</section>
 
 		<section class="slide-content slide-item" data-visible-from="1">
-			We can also characterize transitions using database properties.
+			We can break down transitions using database properties.
 		</section>
 		<section class="slide-content slide-item" data-visible-from="2">
-			A transition $\neg P\rightarrow P'$ is <i>strongly recognizable</i>
-			by $\set{L_i}$ if $P'\subseteq \cup_i\set{L_i}\subseteq P$.
+			A transition $\neg\mathsf{P}\rightarrow\mathsf{P}'$ is <i>strongly and uniformly recognizable</i>
+			by $\set{\mathsf{L}_i}$ if and only if $\mathsf{P}'\subseteq \cup_i\set{\mathsf{L}_i}\subseteq\mathsf{P}$.
 		</section>
 		<section class="slide-content slide-item" data-visible-from="3">
-			Easier to think about the $P=P'$ case
+			Easier to think about the $\mathsf{P}=\mathsf{P}'$ case:
 		</section>
 		<section class="slide-content slide-sub-item" data-visible-from="4">
-			We have $P=\cup_i\set{L_i}$.
+			We have $\mathsf{P}=\cup_i\set{\mathsf{L}_i}$.
 		</section>
 		<section class="slide-content slide-sub-item" data-visible-from="5">
-			For any $D$ to satisfy $P$, it is necessary and sufficient that $D$ satisfies one of the properties.
+			For any $D$ to satisfy $\mathsf{P}$, it is necessary and sufficient that $D$ satisfies one of the $\mathsf{L}_i$'s.
+		</section>
+		<section class="slide-content slide-item" data-visible-from="6">
+			There are <i>weak</i> and <i>non-uniform</i> versions too.
 		</section>
 	</body>
 </html>

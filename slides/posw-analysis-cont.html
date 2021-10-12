@@ -23,24 +23,35 @@
 		<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		<script src="./q-pres.js"></script>
-		<script src="posw-analysis.js"></script>
+		<script src="posw-analysis-cont.js"></script>
 	</head>
 	<body>
-		<section class="slide-title">Proof of Sequential Work: Analysis</section>
+		<section class="slide-title">Proof of Sequential Work: Analysis Cont.</section>
 
 		<section class="slide-content slide-item">
 			First term from the previous slide
 			$$[\![SZ_{\leq k(s-1)}\setminus P_{s-1}\xrightarrow{k} CL\cup CHN^{s+1}]\!]$$
 			$$\leq[\![SZ_{\leq k(s-1)}\setminus P_{s-1}\xrightarrow{k} CL]\!]+[\![SZ_{\leq k(s-1)}\setminus P_{s-1}\xrightarrow{k}CHN^{s+1}]\!]$$
 		</section>
-		<section class="slide-content slide-item">
+		<section class="slide-content slide-item" data-visible-from="1">
 			Then each of the 4 terms have corresponding local properties. Ie.
 		</section>
-		<section class="slide-content slide-item">
+		<section class="slide-content slide-item" data-visible-from="1">
 			$$CL_{i,j}=\set{(y, y)|y\in Y}$$
 		</section>
-		<section class="slide-content slide-item">
+		<section class="slide-content slide-item" data-visible-from="1">
 			$$CL_i=\set{D(\bar{x})|\bar{x}\notin\set{x_k}:D(\bar{x})\ne\bot}$$
+		</section>
+		<section class="slide-content slide-item" data-visible-from="2">
+			Skipping a few more steps, we conclude that
+		</section>
+		<section class="slide-content slide-item" data-visible-from="2">
+			$$
+			[\![SZ_{\leq k(s-1)}\setminus P_{s-1}\xrightarrow{k} P_s]\!]
+			\leq 4ek\sqrt{10\frac{q+1}{2^w}}
+				+3ek\sqrt{\frac{10kqn}{2^w}}
+				+ek\sqrt{10\left(\frac{q+2}{2^{n+1}}\right)^t}
+			$$
 		</section>
 
 

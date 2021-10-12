@@ -29,7 +29,7 @@
 		<section class="slide-title">Analyzing Algorithms by Transition Capacities</section>
 
 		<section class="slide-content slide-item">
-			Previous result by Zhandry
+			Previous result by Zhandry.
 		</section>
 
 		<section class="slide-content slide-item" data-visible-from="1">
@@ -40,11 +40,12 @@
 			Let $R\subseteq X^\ell\times Y^\ell$ be a relation.
 		</section>
 		<section class="slide-content slide-item" data-visible-from="3">
-			Let $\mathcal{A}$ be some algorithm that outputs $(\vec{x}, \vec{y})\in R$ where $H(x)=y$ with probability $p$.
+			Let $\mathcal{A}$ be some algorithm that, with success probability $p$, outputs $(\vec{x}, \vec{y})\in R$ where $H(x)=y$.
 		</section>
 		<section class="slide-content slide-item" data-visible-from="4">
 			Then we have
-			$$\sqrt{p}\leq[\![\bot\xrightarrow{k, q} P^R]\!]+\sqrt{\frac{\ell}{M}}$$
+			$$\sqrt{p}\leq[\![\![\bot\xrightarrow{k, q} \mathsf{P}^R]\!]\!]+\sqrt{\frac{\ell}{M}}$$
+			where $\mathsf{P}^R=\set{D | D\cap R\ne\emptyset}$.
 		</section>
 	</body>
 </html>

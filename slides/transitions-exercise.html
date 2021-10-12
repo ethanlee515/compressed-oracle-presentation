@@ -26,28 +26,28 @@
 		<script src="./transitions-exercise.js"></script>
 	</head>
 	<body>
-		<section class="slide-title">Proof of exercise</section>
+		<section class="slide-title">Proof of Exercise</section>
 
 		<section class="slide-content slide-item" data-visible-from="1">
-			$[\![\neg P_0\xrightarrow{k,q}P_q]\!]=\sup_{U_i} ||P_q cO^k U_{q-1} cO^k\ldots U_1 cO^k (I-P_0)||$
+			$[\![\![\neg \mathsf{P}_0\xrightarrow{k,q}\mathsf{P}_q]\!]\!]=\sup_{U_i} ||\mathsf{P}_q cO^k U_{q-1} cO^k\ldots U_1 cO^k (I-\mathsf{P}_0)||$
 		</section>
 		<section class="slide-content slide-item" data-visible-from="2">
-			$\qquad=\sup_{U_i} ||P_q cO^k (P_{q-1}+(I-P_{q-1})) U_{q-1} cO^k\ldots U_1 cO^k (I-P_0)||$
+			$\qquad=\sup_{U_i} ||\mathsf{P}_q cO^k (\mathsf{P}_{q-1}+(I-\mathsf{P}_{q-1})) U_{q-1} cO^k\ldots U_1 cO^k (I-\mathsf{P}_0)||$
 		</section>
 		<section class="slide-content slide-item" data-visible-from="3">
-			$\qquad=\sup_{U_i} ||P_q cO^k P_{q-1} U_{q-1} cO^k\ldots U_1 cO^k (I-P_0)||$
+			$\qquad\leq\sup_{U_i} ||\mathsf{P}_q cO^k \mathsf{P}_{q-1} U_{q-1} cO^k\ldots U_1 cO^k (I-\mathsf{P}_0)||$
 		</section>
 		<section class="slide-content slide-item" data-visible-from="3">
-			$\qquad\qquad+\sup_{U_i} ||P_q cO^k (I-P_{q-1}) U_{q-1} cO^k\ldots U_1 cO^k (I-P_0)||$
+			$\qquad\qquad+\sup_{U_i} ||\mathsf{P}_q cO^k (I-\mathsf{P}_{q-1}) U_{q-1} cO^k\ldots U_1 cO^k (I-\mathsf{P}_0)||$
 		</section>
 		<section class="slide-content slide-item" data-visible-from="4">
-			$\qquad\leq\sup_{U_i} ||P_{q-1} cO^k\ldots U_1 cO^k (I-P_0)||$
+			$\qquad\leq\sup_{U_i} ||\mathsf{P}_{q-1} cO^k\ldots U_1 cO^k (I-\mathsf{P}_0)||$
 		</section>
 		<section class="slide-content slide-item" data-visible-from="4">
-				$\qquad\qquad+\sup_{U_i} ||P_q cO^k (I-P_{q-1})||$
+			$\qquad\qquad+\sup_{U_i} ||\mathsf{P}_q cO^k (I-\mathsf{P}_{q-1})||$
 		</section>
 		<section class="slide-content slide-item" data-visible-from="5">
-			$\qquad=[\![\neg P_0\xrightarrow{k,q-1}P_{q-1}]\!]+[\![\neg P_{q-1}\xrightarrow{k}P_q]\!]$
+			$\qquad\leq[\![\![\neg \mathsf{P}_0\xrightarrow{k,q-1}\mathsf{P}_{q-1}]\!]\!]+[\![\neg \mathsf{P}_{q-1}\xrightarrow{k}\mathsf{P}_q]\!]$
 		</section>
 	</body>
 </html>

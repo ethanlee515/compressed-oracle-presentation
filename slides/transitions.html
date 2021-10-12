@@ -30,20 +30,24 @@
 
 		<section class="slide-content slide-item" data-visible-from="1">
 			Define the <i>quantum transition capacity</i> as
-			$$[\![P\xrightarrow{k}P']\!]:=\max_{x, y} ||P'cO_{xy}P||$$
-			which measures how likely it is that a database that satisfies $P$
-			turns into a database that satisfies $P'$ from a $k$-parallel query.
+			$$[\![\mathsf{P}\xrightarrow{k}\mathsf{P}']\!]:=\max_{x, y} ||\mathsf{P}'cO_{xy}\mathsf{P}||$$
+			which measures how likely it is that a database that satisfies $\mathsf{P}$
+			turns into a database that satisfies $\mathsf{P}'$ from a $k$-parallel query.
 		</section>
 		<section class="slide-content slide-item" data-visible-from="2">
 			Define
-			$$[\![P\xrightarrow{k,q}P']\!]:=\sup_{U_i} ||P' cO^k U_{q-1} cO^k\ldots U_1 cO^k P||$$
-			which measures how likely it is that a database that satisfies $P$
-			turns into one that satisfies $P'$ from a quantum algorithm performing $k$-parallel queries up to $q$ times.
+			$$[\![\![\mathsf{P}\xrightarrow{k,q}\mathsf{P}']\!]\!]:=\sup_{U_i} ||\mathsf{P}' cO^k U_{q-1} cO^k\ldots U_1 cO^k \mathsf{P}||$$
+			which measures how likely it is that a database that satisfies $\mathsf{P}$
+			turns into one that satisfies $\mathsf{P}'$ from a quantum algorithm performing $k$-parallel queries up to $q$ times.
 		</section>
 		<section class="slide-content slide-item" data-visible-from="3">
 			Quick exercise:
-			For any sequence of properties $P_i$,
-			$$[\![\neg P_0\xrightarrow{k, q}P_q]\!]\leq\sum_{i}[\![\neg P_{i-1}\rightarrow P_i]\!]$$
+			For any sequence of properties $\mathsf{P}_i$,
+			$$[\![\![\neg \mathsf{P}_0\xrightarrow{k, q}\mathsf{P}_q]\!]\!]
+			\leq\sum_{i}[\![\neg \mathsf{P}_{i-1}\xrightarrow{k}\mathsf{P}_i]\!]$$
+		</section>
+		<section class="slide-content slide-item" data-visible-from="4">
+			Example: hash chains. $\mathsf{P}_s=CHN^{s+1}$.
 		</section>
 	</body>
 </html>

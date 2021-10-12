@@ -1,5 +1,5 @@
 function nextSlide() {
-	if(currentSlide == 4) {
+	if(currentSlide == 5) {
 		location.href = "transitions-exercise.html";
 	}
 }
