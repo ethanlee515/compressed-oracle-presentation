@@ -1,1 +1,65 @@
 \section{Models}
+
+Before diving into the main topic today, we review typical strategies to analyze protocols involving hash functions.
+Often we idealize hash functions as truly random functions.
+Once we do that, we can take it a step further and provide \emph{oracle} access to such a function,
+and assume that the only way to evaluate this function is by querying this oracle.
+Under these assumptions, the prover's complexity is lower-bounded by its query-complexity to the oracle.
+This is called the classical \emph{random oracle model}.
+
+Before we move to the quantum setting, we give a brief overview on how to analyze the proof of work algorithm given earlier using this model.
+To bound a cheating prover's success probability,
+we can keep a \emph{database} of its oracle queries and the responses.
+Observe that a prover cannot win unless there is a response in the database where $y_i=0^ns$ starts with $n$ zeroes,
+up to a negligible error from the prover randomly guessing and getting lucky.
+To receive a response that starts with $n$ zeroes, it takes $2^n$ queries on average,
+which we can conclude is a lower bound for the prover's time complexity.
+
+Now let us discuss the quantum setting.
+When a prover is quantum, we need to modify this model accordingly.
+The real-world prover has access to the description of the hash function,
+so it would be able to evaluate the hash function over superposition of inputs.
+To model this behavior, we also allow quantum access to the oracle by allowing superposition queries.
+We use the standard quantum oracle model that acts as a unitary map $\ket{x}\ket{y}\mapsto\ket{x}\ket{y+H(x)}$.
+That is, the output register is provided by the caller.
+We call this the \emph{quantum random oracle model}.
+
+A recent work \cite{compressed-oracles} suggests a way to keep track of a database of a cheating prover's quantum queries,
+analogously to the classical case discussed earlier.
+Without going into too much details,
+we now provide a brief example as to how the database evolves.
+The database begins as an empty list
+$$D_0=\ket{[]}.$$
+Suppose the cheating prover's first query is
+$$\ket{x_1}\ket{0}+\ket{x_2}\ket{0}i,$$
+and the response is
+$$\ket{x_1}\ket{y_1}+\ket{x_2}\ket{y_2}.$$
+The database is then updated to
+$$D_1=\sum_{y_1}\ket{[(x_1, y_1)]} + \sum_{y_2}\ket{[(x_2, y_2)]},$$
+which is, roughly speaking, a superposition of two lists,
+each containing one element $(x_i, y_i)$.
+Of course, this example is not fully general,
+as the prover can use different amplitudes or construct a superposition of more than two terms.
+Moreover, the database is \emph{purified},
+which is another detail that we will brush under the rug for the purpose of this lecture.
+
+Suppose the prover's next query is 
+$$\ket{x_3}\ket{0}+\ket{x_4}\ket{0},$$
+and the response is
+$$\ket{x_3}\ket{y_3}+\ket{x_4}\ket{y_4}.$$
+The resulting dataabase is then
+\begin{align*}
+	D_2&=
+	\sum_{y_1, y_3}\ket{[(x_1, y_1), (x_3, y_3)]}
+	+ \sum_{y_1, y_4}\ket{[(x_1, y_1), (x_4, y_4)]}\\
+	&+ \sum_{y_2, y_3}\ket{[(x_2, y_2), (x_3, y_3)]}
+	+ \sum_{y_2, y_4}\ket{[(x_2, y_2), (x_4, y_4)]}.
+\end{align*}
+Observe that it is now a superposition of four lists.
+The first two lists results from the first term of $D_1$,
+and the next two lists results from the second term of $D_2$.
+
+One important observation is that each of the lists has length equal to the number of queries so far,
+even though the database might have exponentially many terms.
+We will not directly use this fact today,
+but the construction allows certain analysis strategies that involves ``simulating" the database in quantum polynomial time.
