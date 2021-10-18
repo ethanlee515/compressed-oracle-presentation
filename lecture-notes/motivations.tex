@@ -3,34 +3,35 @@
 We will present the work \cite{main-result} which
 \begin{enumerate}
 	\item creates a new framework to reason about hash functions under the quantum setting, and
-	\item uses said framework to analyze an existing proof of sequential work construction.
+	\item uses said framework to show that an existing proof of sequential work protocol is secure against quantum adversaries.
 \end{enumerate}
+To motivate our discussion, we will start with a brief introduction of the more popular \emph{proof of work} scheme,
+which is an important component of the bitcoin mining protocol.
+A proof of work protocol is designed to be difficult to compute while easy to verify.
 
-To motivate our topic today, we start with a brief introduction of the more popular \emph{proof of work} scheme.
-As some readers might have heard, proof of work is an important component of the bitcoin mining protocol.
-A proof of work protocol is designed to be difficult to compute, yet easy to verify.
-Its construction uses hash functions as a main ingredient; for a review of hash functions, we refer the readers to the text \cite{intro-algo}.
-A common construction of the proof of work protocol is as follows:
+The common construction for proof of work uses hash functions as a main ingredient; for a review of hash functions, we refer the readers to the text \cite{intro-algo}.
+The protocol is as follows:
 \begin{enumerate}
 	\item
 		Let $H$ be some hash function.
-		Let $n\in\bbN$ be some public \emph{difficulty} parameter.
+		Let $n\in\bbN$ be the public \emph{difficulty} parameter.
 	\item Verifier samples random $x\randsamp\zo{\lambda}$ and sends it to the prover.
-	\item Prover computes some $y$ where $H(x, y)$ starts with $n$ zeroes.
-	\item Prover sends $y$ to verifier who checks $H(x, y)$.
+	\item Prover computes some $y$, where $H(x, y)$ starts with $n$ zeroes.
+	\item Prover sends $y$ to verifier who computes and checks $H(x, y)$.
 \end{enumerate}
 
-Intuitively speaking, the protocol is hard for the prover because there is no other ways to compute $y$ except by brute force.
+Intuitively, the protocol is hard for the prover because the only way to compute $y$ is by brute force,
+due to the \emph{one-way} property of $H$.
 On the other hand, it is easy for the verifier to check the prover's work simply by evaluating $H(x, y)$.
-An additional observation is that it is easy for the prover to parallelize his computation.
-If the prover has access to parallel processors, he can try many different $y$'s at the same time.
+An additional observation is that it is simple for the prover to parallelize his computation,
+as he can just try many different $y$'s at the same time.
 This motivates our definition of the proof of \emph{sequential} work,
-where we add an additional goal that we want the protocol to be difficult to parallelize.
+where we add an additionally want the protocol to be difficult to parallelize.
 A proof of sequential work scheme is also called a \emph{time-locked puzzle},
 since now there is no way for the prover to speed up the protocol.
-This fact leads to applications in blockchains.
+This leads to its applications in blockchains.
 
-A na\"ive way of creating a difficult task that cannot be parallelized involves constructing a \emph{hash chain}.
-That is, given input $x$, compute $H^n(x)$ by applying the hash function $H$ on $x$ for $n$ times.
-This is unfortunately not a good protocol for proof of sequential work, as it is difficult to verify.
-However, we will see the idea of hash chains in the actual construction that we will see later.
+As a starting point, an unparallelizable and difficult task is to construct a \emph{hash chain}.
+That is, given an input $x$, compute $H^n(x)$ by applying $H$ for $n$ times starting on $x$.
+This is unfortunately not a good protocol by itself for proof of sequential work, since it is difficult to verify.
+However, we will use this idea in the actual construction later.

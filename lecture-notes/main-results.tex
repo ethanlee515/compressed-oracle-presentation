@@ -1,13 +1,11 @@
 \section{Transition of Databases}
 
-Now we are done with the preliminaries, we can start introducing the framework constructed by \cite{main-result}.
-The work puts everything in terms of databases, so we first develop a key piece of terminology.
-
+We are now ready to introduce the framework constructed by \cite{main-result}.
+This work states everything in terms of databases, so we first develop a key piece of terminology.
 \begin{defn}[Database Property]
 	A \emph{database property} on $\cD$ is a subset $\sfP\subseteq\cD$ of the set of databases $D$.
 \end{defn}
-
-We think of $\sfP$ as a predicate for any database $D\in\cD$.
+We think of $\sfP$ as a predicate on a database $D\in\cD$.
 That is, $D\in\sfP$ if and only if $D$ satisfies $\sfP$.
 Moreover, by abuse of notation, we also use $\sfP$ as a projector on the space of databases.
 As a projector, $\sfP$ leaves databases satisfying it unchanged, and maps databases not satisfying it to $0$.
@@ -18,26 +16,26 @@ $$
 \end{cases}
 $$
 
-Now that we have defined database properties, we can then describe the evolution of a database by modeling the \emph{transition} between database properties.
-Mathematically, we first introduce the parameter $k$ which models how many parallel processors does the cheating prover have.
-We can then define two quantities.
-The first of which measures how likely it is that a database that satisfies $\mathsf{P}$
-turns into a database that satisfies $\mathsf{P}'$ from a $k$-parallel query.
-The second one measures how likely it is that a database that satisfies $\mathsf{P}$
+Now that we defined database properties, we can describe the evolution of a database by the \emph{transitions} between database properties.
+First, suppose the cheating prover has $k$ parallel processors.
+We then define two quantities.
+The first one measures the likelihood that a database that satisfies $\mathsf{P}$
+turns into a database that satisfies $\mathsf{P}'$ from one $k$-parallel query.
+The second one measures the likelihood that a database that satisfies $\mathsf{P}$
 turns into one that satisfies $\mathsf{P}'$ from a quantum algorithm performing $k$-parallel queries up to $q$ times.
 
 \begin{defn}[Database transition capacity]
 	Let $k\in\bbN, \sfP, \sfP'\subseteq\cD$. The \emph{transition capacity} is defined as
 	$$\lBrack \sfP \xrightarrow{k} \sfP'\rBrack = \max_{x, y} \norm{\sfP' cO_{xy} \sfP}$$
 	Furthermore, we define
-	$$\lBrack\sfP\xRightarrow{k,q}\sfP']\rBrack:=\sup_{U_i}\norm{\sfP' cO^k U_{q-1} cO^k\ldots U_1 cO^k \sfP}$$
+	$$\lBrack\sfP\xRightarrow{k,q}\sfP']\rBrack:=\sup_{U_i}\norm{\sfP' cO^k U_{q-1} cO^k\ldots U_1 cO^k \sfP}.$$
 \end{defn}
 
-The two quantities are related by the following bound:
+The two quantities we defined above are related by the following bound:
 \begin{lem}
 	\label{transition-multi-to-single}
 	For any sequence of properties $\sfP_i$,
-	$$\lBrack\neg \sfP_0\xrightarrow{k, q}\sfP_q]\rBrack
+	$$\lBrack\neg \sfP_0\xRightarrow{k, q}\sfP_q]\rBrack
 	\leq\sum_{i}\lBrack\neg \sfP_{i-1}\xrightarrow{k}\sfP_i\rBrack$$
 \end{lem}
 
@@ -48,14 +46,13 @@ $$\sfP_s=\mathsf{CHN}^{s+1}$$
 as the collection of databases containing hash chains of length $s+1$,
 then our goal is to bound
 $$\lBrack\sfP_0\xRightarrow{k,q}\sfP_q\rBrack.$$
-Using the lemma above, it is suffice to bound each of
+Using \Cref{transition-multi-to-single}, it is suffice to bound each of
 $$\lBrack\neg \sfP_{i-1}\xrightarrow{k}\sfP_i\rBrack.$$
-Intuitively speaking, we have simplified thhe problem to showing that it is difficult to go from chain length $i$ to length $i+2$ in a single query.
-We will present later other formula to bound such quantities.
-We first present the proof of the lemma.
+In other words, we have reduced the problem to showing that it is difficult to go from chain length $i$ to length $i+2$ in a single query.
+We now prove \Cref{transition-multi-to-single}.
 
 \begin{proof}
-	We first expand the definition of the transition capacity and insert the term $\mathsf{P}_{q-1}+(I-\mathsf{P}_{q-1}$ which equals to the identity.
+	We first expand the definition of the transition capacity and insert the term $\mathsf{P}_{q-1}+(I-\mathsf{P}_{q-1})$ which equals to the identity.
 	The expression can then be simplified using basic properties of operator norm.
 	\begin{align*}
 		\lBrack\neg \mathsf{P}_0\xRightarrow{k,q}\mathsf{P}_q\rBrack
@@ -69,9 +66,9 @@ We first present the proof of the lemma.
 	The result follows from induction.
 \end{proof}
 
-Moreover, recall that in the example earlier with finding a $q+1$-chain,
-we implicitly related the success probability of an algorithm with the contents of the corresponding database.
-Now we also state the connection more precisely by rephrasing a previous result from \cite{compressed-oracles} in the language of databases.
+Recall that in the example earlier with finding a $q+1$-chain,
+we implicitly related an algorithm's success probability with the contents of its database.
+We now fill in the mathematical details by generalizing a previous result from \cite{compressed-oracles}.
 \begin{thm}
 	\label{zhandry-database}
 	Let $R\subseteq X^\ell\times Y^\ell$ be a relation.
@@ -81,24 +78,26 @@ Now we also state the connection more precisely by rephrasing a previous result 
 	where $\mathsf{P}^R=\set{D | D\cap R\ne\emptyset}$.
 \end{thm}
 
-Now we finally introduce ways to break down and bound quantities of the form 
-$$\lBrack\sfP_0\xRightarrow{k,q}\sfP_q\rBrack.$$
+Now we introduce ways to simplify and bound quantities of the form 
+$\lBrack\neg\sfP_{i-1}\xrightarrow{k}\sfP_i\rBrack$.
 To begin, we introduce some more terminology to help us describe database transitions.
 \begin{defn}[Recognizability]
-	A transition $\neg\mathsf{P}\rightarrow\mathsf{P}'$ is strongly and uniformly \emph{recognizable}
+	A transition $\neg\mathsf{P}\rightarrow\mathsf{P}'$ is (strongly and uniformly) \emph{recognizable}
 		by $\set{\mathsf{L}_i}$ if and only if $\mathsf{P}'\subseteq \cup_i\set{\mathsf{L}_i}\subseteq\mathsf{P}$.
 \end{defn}
 
-For this definition, it is easier to first consider the $\sfP=\sfP'$ case.
-In that case, $\mathsf{P}=\cup_i\set{\mathsf{L}_i}$ just gives us $\sfP=\sfP'$.
-$\neg\mathsf{P}\rightarrow\mathsf{P}'$ just gives us $\mathsf{P}=\cup_i\set{\mathsf{L}_i}$,
-which in turn says that for any $D$ to satisfy $\mathsf{P}$, it is necessary and sufficient that $D$ satisfies one of the $\mathsf{L}_i$'s.
-In particular, it is always true that $\set{P}$ recognizes $\neg\sfP\rightarrow\sfP$,
-though this fact is not useful in the later steps.
+There are also other versions such as \emph{weak} or \emph{non-uniform} recognizabilities which we will unfortunately skip today.
+For our current definition, it is easier to first consider the $\sfP=\sfP'$ case.
+In that case,
+$\mathsf{P}'\subseteq \cup_i\set{\mathsf{L}_i}\subseteq\mathsf{P}$
+just gives us
+$\mathsf{P}=\cup_i\set{\mathsf{L}_i}$,
+which says that for any $D$ to satisfy $\mathsf{P}$, it is necessary and sufficient that $D$ satisfies one of the $\mathsf{L}_i$'s.
+Particularly, $\set{P}$ always recognizes $\neg\sfP\rightarrow\sfP$,
+even though this fact is not useful later.
 
-There are other versions such as \emph{weak} or \emph{non-uniform} recognizabilities which we will unfortunately skip in the interest of time.
-We can now bound transition capabilities in terms of \emph{local} properties that recognize said transition.
-Roughly speaking, a set of database properties $\set{\mathsf{L}_i}$ is local if the truth value of each $\mathsf{L}_i$ depends only on a constant number of $x_i$'s.
+We can bound transition capacities in terms of \emph{local} properties that recognize the transition.
+Roughly speaking, a set of database properties $\set{\mathsf{L}_i}$ is local if the truth value of each $\mathsf{L}_i$ depends only on a constant number of $x_j$'s.
 
 \begin{thm}
 	\label{property-to-bound}
@@ -108,10 +107,10 @@ Roughly speaking, a set of database properties $\set{\mathsf{L}_i}$ is local if 
 \end{thm}
 
 One highlight of this theorem is that the right-hand side is entirely classical.
-In other words, this framework allows its users to analyze certain algorithms against quantum adversaries using almost fully classical reasoning,
+In other words, this framework allows its users to analyze quantum adversaries using almost fully classical reasoning,
 and the resulting analysis may even roughly follow that of a classical adversary.
 Towards that goal, now we present a few formula to break down transition capacities.
-First, we have a formula that we can use to ``remove" some pathological low-probability event $\neg\mathsf{Q}$ such as hash collisions.
+First, we have a formula for removing some pathological event $\neg\mathsf{Q}$ such as hash collisions.
 \begin{lem}
 	$$
 	\lBrack\sfP\xrightarrow{k}\sfP''\rBrack\leq
@@ -119,18 +118,17 @@ First, we have a formula that we can use to ``remove" some pathological low-prob
 	\lBrack\sfP\xrightarrow{k} \sfP''\cap Q\rBrack.
 	$$
 \end{lem}
-Next, we have an analogue for union bounds.
+Next, we have union bounds.
 \begin{lem}
 For all properties $P, Q, \sfP''$,
 $$
-	\lBrack\sfP\xrightarrow{k}\sfP''\rBrack\leq
-	\lBrack\sfP\xrightarrow{k} \sfP''\setminus Q\rBrack+
-	\lBrack\sfP\xrightarrow{k} \sfP''\cap Q\rBrack.
+	\lBrack\sfP\xrightarrow{k}\sfQ_1\cup\sfQ_2\rBrack\leq
+	\lBrack\sfP\xrightarrow{k}\sfQ_1\rBrack+
+	\lBrack\sfP\xrightarrow{k}\sfQ_2\rBrack.
 $$
 \end{lem}
-Lastly, we also have a way to break the queries down by splitting the domain $X=X_1\cup X_2$.
-Here we define $\lBrack\sfP\xrightarrow{k} \sfP''|X\rBrack$ similarly to $\lBrack\sfP\xrightarrow{k} \sfP''\rBrack$,
-except with extra constraints on the oracle input that $x\in X$.
+Moreover, we can sort the queries by splitting the domain $X=X_1\cup X_2$.
+Here $\lBrack\sfP\xrightarrow{k} \sfP''|X\rBrack$ is defined by restricting the oracle's inputs to $x\in X$.
 \begin{lem}
 $$
 	\lBrack\sfP\xrightarrow{k} \sfP''|X\rBrack\leq
@@ -143,7 +141,7 @@ This last formula is especially helpful to analyze protocols that use the constr
 	H_1&=H(1, x) \\
 	H_2&=H(0, x)
 \end{align*}
-to implement two hash functions from a single hash function.
+to split a single hash function into two.
 We will show its proof:
 \begin{proof}
 	Decompose
@@ -154,9 +152,9 @@ We will show its proof:
 	\lBrack P\xrightarrow{k} P''|X\rBrack &=\max_{xy}\norm{P''cO_{xy}P}\\
 			&=\max_{xy}\norm{P''cO_{x''y''}cO_{x'y'}P}\\
 			&=\max_{xy}\norm{P''cO_{x''y''}(P' + (I - P'))cO_{x'y'}P}\\
-			&=\max_{xy}\norm{P''cO_{x''y''}P' cO_{x'y'}P}
+			&\leq\max_{xy}\norm{P''cO_{x''y''}P' cO_{x'y'}P}
 			+\max_{xy}\norm{P''cO_{x''y''}(I - P')cO_{x'y'}P}\\
-			&=\max_{xy}\norm{P' cO_{x'y'}P}
+			&\leq\max_{xy}\norm{P' cO_{x'y'}P}
 			+\max_{xy}\norm{P''cO_{x''y''}(I - P')}\\
 			&\leq
 			\lBrack P\xrightarrow{k} P'|X'\rBrack +
@@ -164,9 +162,8 @@ We will show its proof:
 \end{align*}
 \end{proof}
 
-We can simplify a transition capacity using these formula.
+There are more formula for simplifying transition capacities which we do not have time to present.
 With a simple enough transition capacity,
 we might be able to identify local properties that recognize it.
 Once we do, we can then apply \Cref{property-to-bound} to obtain a bound.
-
-As an example, we will give a rough sketch of the analysis of the proof of sequential work.
+As an example, we will give a rough sketch of the analysis for proof of sequential work.
