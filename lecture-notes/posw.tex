@@ -1,2 +1,74 @@
 \section{Proof of Sequential Work}
 
+One of the contributions of \cite{main-result} is to take the proof of sequential work protocol from \cite{posw} and prove that it is secure against cheating quantum provers too.
+
+Roughly speaking, the construction embeds a hash chain in a graph.
+Each element of the hash chain corresponds to a vertex in said graph.
+The prover is then asked to compute the hash chain,
+which requires him to iterate through the entire graph, one vertex at a time.
+On the other hand, the graph's structure allows the verifier to easily check the prover's work.
+Particularly, the verifier only needs to check some random paths in the graph, in order to know whether the prover has cheated.
+For full details of the construction, we refer the reader to page 24 of \cite{main-result} which does a good job of summarizing this protocol.
+
+To analyze the protocol, \cite{main-result} first writes down the ``success" relation
+$$\mathsf{Suc}=\set{D|D^{\mathsf{ChQ}}(\ell_{rt})\subseteq \mathsf{Ext}^D(\ell_{rt})}$$
+for when the prover's work is accepted by the verifier.
+Roughly speaking, the term $D^{\mathsf{ChQ}}(\ell_{rt})$ corresponds to the paths that the verifier checks,
+and $\mathsf{Ext}^D(\ell_{rt})$ is what can be \emph{extracted} from the database that is consistent with $\ell_{rt}$,
+which the prover claims to be the tail of the hash chain $H^n(x)$.
+By \Cref{zhandry-database}, it is sufficient to bound
+$$\lBrack\bot\xRightarrow{k, q}\mathsf{Suc}\rBrack.$$
+Using \Cref{transition-multi-to-single},
+we can then estimate it by
+\begin{equation}
+	\label{eq:posw-multi-to-single}
+	\sum_{s}\lBrack\mathsf{SZ}_{\leq k(s-1)}\setminus\sfP_{s-1}\xrightarrow{k}\sfP_s\rBrack,
+\end{equation}
+where $\mathsf{SZ}_{\leq k(s-1)}$ simply keeps track of the database's size,
+and we let $\sfP_s=\mathsf{Suc}\cup\mathsf{CL}\cup\mathsf{CHN}^{s+1}$.
+
+Intuitively speaking, we write down $\sfP_s$ for what should \emph{not} happen after the $s$-th query.
+In our case, we do not expect the prover to
+\begin{enumerate}
+	\item succeed in convincing the verifier, or
+	\item see a hash collision, or
+	\item obtain a hash chain of length $s+1$.
+\end{enumerate}
+
+Now, using the formula presented earlier and skipping some steps,
+we can simplify each term in \Cref{eq:posw-multi-to-single} as
+\begin{align*}
+	&\lBrack \SZ_{\leq k(s-1)}\setminus \sfP_{s-1}\xrightarrow{k} \sfP_s\rBrack 
+	\leq
+	2\lBrack \SZ_{\leq k(s-1)}\setminus P_{s-1}\xrightarrow{k} \CL\cup \CHN^{s+1}\rBrack  \\
+	&\qquad+\lBrack \SZ_{\leq k(s-1)}\setminus P_{s-1}\xrightarrow{k} \Suc\setminus{\CL} | \LbQ\rBrack 
+	+\lBrack \neg P_s\xrightarrow{k} \Suc\setminus\CL|\ChQ\rBrack,
+\end{align*}
+where we will brush $\ChQ$ and $\LbQ$ under the rug.
+For the informed reader, $\LbQ$ is our original domain, while $\ChQ$ comes from an additional hash function introduced by the so-called \emph{Fiat-Shamir} transform.
+
+Our first term can then be simplified further using a union bound:
+\begin{align*}
+	\lBrack \SZ_{\leq k(s-1)}\setminus P_{s-1}\xrightarrow{k} \CL\cup \CHN^{s+1}\rBrack
+	\leq
+	\lBrack \SZ_{\leq k(s-1)}\setminus P_{s-1}\xrightarrow{k} \CL\rBrack
+	+
+	\lBrack \SZ_{\leq k(s-1)}\setminus P_{s-1}\xrightarrow{k} \CHN^{s+1}\rBrack
+\end{align*}
+
+At this point, each of our four terms have corresponding local properties. For example,
+\begin{align*}
+	CL_{i,j}&=\set{(y, y)|y\in Y}\\
+	CL_i&=\set{D(\bar{x})|\bar{x}\notin\set{x_k}:D(\bar{x})\ne\bot}
+\end{align*}
+
+By applications of \Cref{property-to-bound} and similar bounds on weak and non-uniform recognizabilities,
+we obtain
+$$
+\lBrack SZ_{\leq k(s-1)}\setminus P_{s-1}\xrightarrow{k} P_s\rBrack
+	\leq 4ek\sqrt{10\frac{q+1}{2^w}}
+	+3ek\sqrt{\frac{10kqn}{2^w}}
+	+ek\sqrt{10\left(\frac{q+2}{2^{n+1}}\right)^t}
+$$
+and finish the proof.
+
